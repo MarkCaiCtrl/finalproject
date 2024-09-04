@@ -41,6 +41,22 @@ button{
   color: #6e98eb;
 }
 
+.diff{
+  margin: 10px;
+}
+
+.diff[data-difficulty="easy"] {
+  color: #34C759;
+}
+
+.diff[data-difficulty="medium"] {
+  color: #FFA07A;
+}
+
+.diff[data-difficulty="hard"] {
+  color: #FF3737;
+}
+
 .question{
   font-size: larger;
 }

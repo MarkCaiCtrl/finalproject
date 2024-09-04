@@ -9,6 +9,7 @@ function App() {
   const [triviaQuestion, setTriviaQuestion] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [currentPoints, setCurrentPoints] = useState(0);
+  const [currentDifficulty, setCurrentDifficulty] = useState(0);
   const [allPossibleAnswers, setAllPossibleAnswers] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -32,6 +33,7 @@ function App() {
       setTriviaQuestion(resp.data.results);
 
     setCorrectAnswer(resp.data.results[0].correct_answer);
+    setCurrentDifficulty(resp.data.results[0].difficulty);
 
     await combineAllAnswers(resp.data.results, resp.data.results[0].correct_answer);
     } catch (error) {
@@ -76,6 +78,9 @@ function App() {
         {loading ? "Trivia Question Loading..." : <div>
           <div className='points'>
             Current Points: {currentPoints}
+          </div>
+          <div className='diff' data-difficulty={currentDifficulty}>
+            Current Difficulty: {currentDifficulty}
           </div>
           <br />
 
